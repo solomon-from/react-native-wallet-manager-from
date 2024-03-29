@@ -36,7 +36,7 @@ RCT_EXPORT_METHOD(
                   ) {
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     NSString *encodedUrlString = [passUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURL *passURL = [[NSURL alloc] initWithString:passUrl];
+    NSURL *passURL = [[NSURL alloc] initWithString:encodedUrlString];
     if (!passURL) {
       reject(rejectCode, @"The pass URL is invalid", nil);
       return;
